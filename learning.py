@@ -408,7 +408,7 @@ def NearestNeighborLearner(dataset, k=1):
 # ______________________________________________________________________________
 
 
-def truncated_svd(X, num_val=2, max_iter=1000):
+def truncated_svd(X, num_val=4, max_iter=2000):
     """Compute the first component of SVD."""
 
     def normalize_vec(X, n=2):
@@ -660,8 +660,8 @@ def DecisionListLearner(dataset):
 # ______________________________________________________________________________
 
 
-def NeuralNetLearner(dataset, hidden_layer_sizes=[3],
-                     learning_rate=0.01, epochs=900, activation=sigmoid):
+def NeuralNetLearner(dataset, hidden_layer_sizes=[4],
+                     learning_rate=0.01, epochs=5000, activation=sigmoid):
     """Layered feed-forward network.
     hidden_layer_sizes: List of number of hidden units per hidden layer
     learning_rate: Learning rate of gradient descent
@@ -803,7 +803,7 @@ def BackPropagationLearner(dataset, net, learning_rate, epochs, activation=sigmo
     return net
 
 
-def PerceptronLearner(dataset, learning_rate=0.01, epochs=900):
+def PerceptronLearner(dataset, learning_rate=0.01, epochs=1500):
     """Logistic Regression, NO hidden layer"""
     i_units = len(dataset.inputs)
     o_units = len(dataset.values[dataset.target])
