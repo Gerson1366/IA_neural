@@ -661,7 +661,7 @@ def DecisionListLearner(dataset):
 
 
 def NeuralNetLearner(dataset, hidden_layer_sizes=[3],
-                     learning_rate=0.01, epochs=100, activation=sigmoid):
+                     learning_rate=0.01, epochs=900, activation=sigmoid):
     """Layered feed-forward network.
     hidden_layer_sizes: List of number of hidden units per hidden layer
     learning_rate: Learning rate of gradient descent
@@ -803,7 +803,7 @@ def BackPropagationLearner(dataset, net, learning_rate, epochs, activation=sigmo
     return net
 
 
-def PerceptronLearner(dataset, learning_rate=0.01, epochs=100):
+def PerceptronLearner(dataset, learning_rate=0.01, epochs=900):
     """Logistic Regression, NO hidden layer"""
     i_units = len(dataset.inputs)
     o_units = len(dataset.values[dataset.target])
