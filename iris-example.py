@@ -1,10 +1,17 @@
 from learning import *
 import csv
+import time
 
+
+
+start = time.time()
+learning_rate = 0.01
+hidden_layer = [30]
+epochs = 5000
 iris = DataSet(name="balance-scale")
 iris.classes_to_numbers()
 print(iris)
-nNL = NeuralNetLearner(iris)
+nNL = NeuralNetLearner(iris,hidden_layer,learning_rate,epochs)
 right = 0
 total = 0
 with open('./aima-data/balance-test.csv') as csv_file:
@@ -21,4 +28,16 @@ with open('./aima-data/balance-test.csv') as csv_file:
         if(teste==resul):
             right = right+1
 acertos = (right/total)*100
-print('Porcentagem: ',acertos,'%')
+end = time.time()
+elapsed = end - start
+
+print('')
+print('Taxa Aprendizado: ' ,learning_rate)
+print('Numero de vezes que o algoritmo passa pelo dataset: ' ,epochs)
+print('Tamanho das camadas escondidas: ' ,hidden_layer)
+print('')
+print('Tempo: ' ,elapsed, 'segundos')
+print('Taxa de acerto: ',acertos,'%')
+
+
+
